@@ -14,7 +14,8 @@ int main(void)
 
     printf("Before remove: ");
     int *n;
-    vec_foreach(&nums, n) {
+    vec_foreach(&nums, n)
+    {
         printf("%d ", *n);
     }
     printf("\n");
@@ -23,7 +24,8 @@ int main(void)
     vec_remove(&nums, 1); 
 
     printf("After remove:  ");
-    vec_foreach(&nums, n) {
+    vec_foreach(&nums, n)
+    {
         printf("%d ", *n);
     }
     printf("\n\n");
