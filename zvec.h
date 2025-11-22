@@ -168,7 +168,7 @@ static inline T* vec_bsearch_##T(vec_##T *v, const void *key,                   
 #define vec_last(v)               _Generic((v), REGISTER_TYPES(LAST_ENTRY)      default: (void)0)(v)
 #define vec_free(v)               _Generic((v), REGISTER_TYPES(FREE_ENTRY)      default: (void)0)(v)
 #define vec_pop(v)                _Generic((v), REGISTER_TYPES(POP_ENTRY)       default: (void)0)(v)
-#define vec_pop_get(v)            _Generic((v), REGISTER_TYPES(POP_ENTRY)       default: (void)0)(v)
+#define vec_pop_get(v)            _Generic((v), REGISTER_TYPES(POP_GET_ENTRY)   default: (void)0)(v)
 #define vec_shrink_to_fit(v)      _Generic((v), REGISTER_TYPES(SHRINK_ENTRY)    default: (void)0)(v)
 #define vec_remove(v, i)          _Generic((v), REGISTER_TYPES(REMOVE_ENTRY)    default: (void)0)(v, i)
 #define vec_swap_remove(v, i)     _Generic((v), REGISTER_TYPES(SWAP_REM_ENTRY)  default: (void)0)(v, i)
