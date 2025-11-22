@@ -2,19 +2,15 @@
 #include <stdio.h>
 #include "my_vectors.h"
 
-int compare_ints(const void *a, const void *b) 
+int compare_ints(const int *a, const int *b) 
 {
-    int int_a = *(const int*)a;
-    int int_b = *(const int*)b;
-    return (int_a > int_b) - (int_a < int_b);
+    return (*a > *b) - (*a < *b);
 }
 
-int compare_points_x(const void *a, const void *b)
+int compare_points_x(const Point *a, const Point *b)
 {
-    const Point *p_a = (const Point*)a;
-    const Point *p_b = (const Point*)b;
-    if (p_a->x < p_b->x) return -1;
-    if (p_a->x > p_b->x) return 1;
+    if (a->x < b->x) return -1;
+    if (a->x > b->x) return 1;
     return 0;
 }
 

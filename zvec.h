@@ -92,9 +92,12 @@ static inline void vec_free_##T(vec_##T *v) {                                   
     free(v->data);                                                                          \
     *v = (vec_##T){0};                                                                      \
 }                                                                                           \
-static inline void vec_sort_##T(vec_##T *v, int (*compar)(const void *, const void *)) {    \
+                                                                                            \
+static inline void vec_sort_##T(vec_##T *v, int (*compar)(const T *, const T *)) {          \
     if (v->length > 1) {                                                                    \
-        qsort(v->data, v->length, sizeof(T), compar);                                       \
+        int (*qsort_cmp)(const void *, const void *) =                                      \
+            (int (*)(const void *, const void *))compar;                                    \
+        qsort(v->data, v->length, sizeof(T), qsort_cmp);                                    \
     }                                                                                       \
 }
 
