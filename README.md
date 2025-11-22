@@ -5,7 +5,7 @@
 ## Features
 
 * **Type Safety**: Compiler errors if you try to push a float into a vec_int.
-* **Native Performance**: Data is stored in contiguous arrays of the actual type (no pointer indirection overhead).
+* **Native Performance**: Data is stored in contiguous arrays of the actual type (no boxing or pointer indirection overhead).
 * **Header Only**: No build scripts or linking required.
 * **C11 Generics**: One API (`vec_push`, `vec_at`, etc.) works for all registered types.
 * **Zero Dependencies**: Only standard C headers used.
@@ -78,3 +78,47 @@ int main(void)
     return 0;
 }
 ```
+
+## API Reference
+
+`zvec.h` uses C11 `_Generic` to automatically select the correct function implementation based on the vector type you pass.
+
+### Initialization & Management
+
+| Macro | Description |
+| :--- | :--- |
+| `vec_init(Type)` | Returns an empty vector structure initialized to zero. |
+| `vec_init_with_cap(Type, n)` | Returns a vector with initial memory reserved for `n` elements. |
+| `vec_free(v)` | Frees the internal memory array and zeroes the vector structure. |
+| `vec_clear(v)` | Sets the length to 0 but keeps the allocated memory capacity. |
+| `vec_reserve(v, n)` | Ensures the vector has capacity for at least `n` elements total. |
+| `vec_shrink_to_fit(v)` | Reallocates the internal memory to match exactly the current length. |
+
+### Data Access
+
+| Macro | Description |
+| :--- | :--- |
+| `vec_at(v, index)` | Returns a **pointer** to the element at `index`, or `NULL` if out of bounds. |
+| `vec_last(v)` | Returns a **pointer** to the last element in the vector. |
+| `vec_data(v)` | Returns the raw underlying array pointer (`T*`). |
+| `vec_is_empty(v)` | Returns `1` (true) if the vector length is 0, otherwise `0`. |
+
+### Modification
+
+| Macro | Description |
+| :--- | :--- |
+| `vec_push(v, value)` | Appends `value` to the end of the vector. Auto-resizes if needed. |
+| `vec_pop(v)` | Removes the last element. Decrements length. |
+| `vec_pop_get(v)` | Removes the last element and **returns** its value. |
+| `vec_extend(v, arr, count)` | Appends `count` elements from the raw array `arr` to the end of the vector. |
+| `vec_remove(v, index)` | Removes the element at `index`, shifting all subsequent elements left (preserves order). |
+| `vec_swap_remove(v, index)` | Removes the element at `index` by swapping it with the last element (O(1), order not preserved). |
+| `vec_reverse(v)` | Reverses the elements of the vector in-place. |
+
+### Algorithms & Iteration
+
+| Macro | Description |
+| :--- | :--- |
+| `vec_foreach(v, iter)` | A loop helper. `iter` must be a pointer variable; it is assigned to each element in the vector sequentially. |
+| `vec_sort(v, cmp)` | Sorts the vector in-place using standard `qsort`. `cmp` is a function pointer: `int (*)(const T*, const T*)`. |
+| `vec_bsearch(v, key, cmp)` | Performs a binary search. Returns a pointer to the found element or `NULL`. `key` is `const void*`. |
